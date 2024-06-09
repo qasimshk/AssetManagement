@@ -33,20 +33,23 @@ namespace assetmgmt.tests.TestData
 
         private static void AddSourceData(AssetDbContext dbContext)
         {
-            var existingAsset = dbContext.Assets.Single(x => x.Symbol == "MSFT");
-
-            var sources = new List<Source>
+            var existingAsset = dbContext.Assets.FirstOrDefault(x => x.Symbol == "MSFT");
+            
+            if (existingAsset != null)
             {
-                Source.Create("NASDAQ", 425.45m, existingAsset),
-                Source.Create("Reuters", 423.85m, existingAsset),
-                Source.Create("Appreciate Wealth", 423.85m, existingAsset),
-                Source.Create("Yahoo Finance", 423.85m, existingAsset),
-                Source.Create("Market CapOf", 423.85m, existingAsset),
-                Source.Create("Bloomberg", 423.85m, existingAsset),
-            };
+                var sources = new List<Source>
+                {
+                    Source.Create("NASDAQ", 425.45m, existingAsset!),
+                    Source.Create("Reuters", 423.85m, existingAsset!),
+                    Source.Create("Appreciate Wealth", 423.85m, existingAsset!),
+                    Source.Create("Yahoo Finance", 423.85m, existingAsset!),
+                    Source.Create("Market CapOf", 423.85m, existingAsset!),
+                    Source.Create("Bloomberg", 423.85m, existingAsset!),
+                };
 
-            dbContext.Sources.AddRange(sources);
-            dbContext.SaveChanges();
+                dbContext.Sources.AddRange(sources);
+                dbContext.SaveChanges();
+            }
         }
     }
 }
