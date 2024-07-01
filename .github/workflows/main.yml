@@ -20,6 +20,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore AssetMgmt/AssetMgmt.sln
     - name: Build
-      run: dotnet build --no-restore 
+      run: dotnet build --no-restore AssetMgmt/AssetMgmt.sln
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal AssetMgmt/AssetMgmt.sln
