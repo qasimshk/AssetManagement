@@ -13,3 +13,4 @@ Both database entity's properties are private and can only be created or updated
 
 I won't use the CQRS pattern for this kind of API as there is no need to raise any events based on the CRUD process.
 
+<a href="https://buymeacoffee.com/cematix" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
